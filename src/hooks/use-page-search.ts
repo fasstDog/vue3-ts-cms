@@ -1,0 +1,19 @@
+import { ref } from 'vue'
+import PageContent from '@/components/page-content'
+
+// 搜索的hooks
+
+export function usePageSearch(){
+  const pageContentRef = ref<InstanceType<typeof PageContent>>()
+
+const handleResetBtnClick = ()=>{
+  pageContentRef.value?.getPageData()
+}
+
+const handleQueryBtnClick = (queryInfo:any)=>{
+  pageContentRef.value?.getPageData(queryInfo)
+}
+
+  return [pageContentRef,handleResetBtnClick,handleQueryBtnClick]
+
+}
