@@ -7,13 +7,13 @@ export interface IFromItem {
   rules?:any[]
   placeholder?:any
   options?:any[]
-  //
   otherOptions?:any
+  isHidden?:boolean
 }
 
 export interface IFrom {
   fromItems:IFromItem[]
   labelWidth?:string
   collLayout?:any,
-  itemLayout?:any
+  itemStyle?:any
 }

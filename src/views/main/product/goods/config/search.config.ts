@@ -2,7 +2,7 @@ import { IFrom } from '@/base-ui/from'
 
 export const searchFromConfig:IFrom = {
   labelWidth:'120px',
-  itemLayout:{
+  itemStyle:{
     padding:'10px 40px'
   },
   collLayout:{

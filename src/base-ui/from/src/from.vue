@@ -7,7 +7,7 @@
         <el-row>
           <template v-for="item in fromItems" :key="item.label">
             <el-col v-bind="collLayout">
-              <el-form-item :style="itemStyle"  :label="item.label" :rules="item.rules">
+              <el-form-item v-if="!item.isHidden" :style="itemStyle"  :label="item.label" :rules="item.rules">
                 <template v-if="item.type === 'input' || item.type === 'password'" >
                   <el-input
                   v-bind="item.otherOptions"
@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent,PropType,computed,ref,watch } from 'vue'
+import { defineComponent,PropType,ref,watch } from 'vue'
 import { IFromItem } from '../types'
 
 export default defineComponent({

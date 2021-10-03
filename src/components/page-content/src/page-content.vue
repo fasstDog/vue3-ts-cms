@@ -17,7 +17,7 @@
 
       <template #handler="scope">
         <div class="handle-btns">
-          <el-button icon="el-icon-edit" size="mini" type="text" v-if="isUpdate">编辑</el-button>
+          <el-button icon="el-icon-edit" size="mini" type="text" v-if="isUpdate" @click="handleEditClick(scope.row)">编辑</el-button>
           <el-button icon="el-icon-delete" size="mini" type="text" v-if="isDelete" @click="handleDeleteClick(scope.row)">删除</el-button>
         </div>
       </template>
@@ -39,7 +39,7 @@
         <h2>hhh</h2>
       </template> -->
       <template #header-handler v-if="isCreate">
-        <el-button type="primary" size="medium">{{createBtn}}</el-button>
+        <el-button type="primary" size="medium" @click="handleNewClick">{{createBtn}}</el-button>
       </template>
 
 
@@ -71,7 +71,8 @@ export default defineComponent({
       default:'新建用户'
     }
   },
-  setup (props) {
+  emits:['newBtnClick','editBtnClick'],
+  setup (props,{emit}) {
     const store = useStore()
 
     // 获取操作的权限
@@ -125,7 +126,19 @@ export default defineComponent({
 
     // 监听删除按钮
     const handleDeleteClick=(item:any)=>{
-      console.log(item);
+      store.dispatch('system/deletePageDataAction',{
+        pageName:props.pageName,
+        id:item.id
+      })
+    }
+
+    // 监听新建按钮handleNewClick
+    const handleNewClick = ()=>{
+      emit('newBtnClick')
+    }
+    // 监听编辑按钮handleEditClick
+    const handleEditClick = (item:any)=>{
+      emit('editBtnClick',item)
     }
 
     return {
@@ -137,7 +150,9 @@ export default defineComponent({
       isDelete,
       isUpdate,
       isCreate,
-      handleDeleteClick
+      handleDeleteClick,
+      handleNewClick,
+      handleEditClick
     }
   }
 })
