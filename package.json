@@ -6,7 +6,6 @@
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
         "prettier": "prettier --write .",
-        "prepare": "husky install",
         "commit": "cz"
     },
     "dependencies": {
