@@ -12,7 +12,8 @@ const store = createStore<IRootState>({
     return {
       entireDepartment:[],
       entireRole:[],
-      entireMeun:[]
+      entireMeun:[],
+
     }
   },
   getters:{},

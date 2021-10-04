@@ -1,9 +1,6 @@
 <template>
     <div class="page-search">
       <ft-from v-bind="searchFromConfig" v-model="formData">
-        <template #header>
-          <h2>高级检索</h2>
-        </template>
         <template #footer>
           <div class="handle-btns">
             <el-button icon="el-icon-refresh" @click="handleResetClick">重置</el-button>

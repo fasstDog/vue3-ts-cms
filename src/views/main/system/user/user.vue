@@ -6,6 +6,7 @@
     @queryBtnClick="handleQueryBtnClick"
     />
     <page-content
+    createBtn="新建用户"
     :contentTableConfig="contentTableConfig"
     pageName="users"
     ref="pageContentRef"
@@ -19,7 +20,7 @@
         </el-button>
     </template>
     </page-content>
-    <page-modal pageName="users" :defaultInfo="defaultInfo" :modalConfig="modalConfigRef" ref="pageModalRef" ></page-modal>
+    <page-modal pageName="users" :defaultInfo="defaultInfo" :modalConfig="modalConfigRef" ref="pageModalRef" message="用户操作"></page-modal>
   </div>
 </template>
 

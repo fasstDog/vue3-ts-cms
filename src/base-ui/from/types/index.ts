@@ -14,6 +14,7 @@ export interface IFromItem {
 export interface IFrom {
   fromItems:IFromItem[]
   labelWidth?:string
-  collLayout?:any,
+  collLayout?:any
   itemStyle?:any
+  title?:string
 }

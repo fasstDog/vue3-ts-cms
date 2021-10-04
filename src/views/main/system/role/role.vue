@@ -1,7 +1,7 @@
 <template>
   <div class="role">
-    <page-search :searchFromConfig="searchFromConfig"></page-search>
     <page-content
+
      :contentTableConfig="contentTableConfig"
      pageName="role"
      @newBtnClick="handleNewData"
@@ -9,7 +9,7 @@
      :otherInfo="otherInfo"
      createBtn="新建角色"
      ></page-content>
-    <page-modal ref="pageModalRef" :defaultInfo="defaultInfo" :modalConfig="modalConfig" pageName="role">
+    <page-modal ref="pageModalRef" message="角色操作" :defaultInfo="defaultInfo" :modalConfig="modalConfig" pageName="role">
       <div class="menu-tree">
       <el-tree
         ref="elTreeRef"
@@ -35,16 +35,16 @@ import {ElTree} from 'element-plus'
 import pageContent from '@/components/page-content'
 import { contentTableConfig } from './config/contentconfig'
 
-import pageSearch from '@/components/page-serach'
-import { searchFromConfig } from './config/search.config'
+
 
 import PageModal from '@/components/page-modal'
 import { modalConfig } from './config/modal.config'
 
 import { usePageModal } from '@/hooks/use-modal'
 
+
 export default defineComponent({
-  components: { pageContent, pageSearch,PageModal },
+  components: { pageContent,PageModal },
   name: 'role',
   setup() {
     const elTreeRef = ref<InstanceType<typeof ElTree>>()
@@ -74,7 +74,6 @@ export default defineComponent({
 
     return {
       contentTableConfig,
-      searchFromConfig,
       modalConfig,
       pageModalRef,
       defaultInfo,

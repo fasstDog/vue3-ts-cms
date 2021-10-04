@@ -1,7 +1,7 @@
 <template>
   <div class="page-modal">
   <el-dialog
-  title="新建用户"
+  :title="message"
   v-model="dialogVisible"
   width="30%"
   center
@@ -44,6 +44,10 @@ export default defineComponent({
     pageName:{
       type:String,
       require:true
+    },
+    message:{
+      type:String,
+      default:()=>('')
     }
   }
   ,
