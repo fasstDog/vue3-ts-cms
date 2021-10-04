@@ -6,13 +6,19 @@
     @queryBtnClick="handleQueryBtnClick"
     ></page-search>
     <page-content
-    createBtn="-"
+    createBtn="新建类别"
     :contentTableConfig="contentTableConfig"
     pageName="category"
     ref="pageContentRef"
+    @editBtnClick="handleEditData"
+    @newBtnClick="handleNewData"
     ></page-content>
     <page-modal
-
+    ref="pageModalRef"
+    :defaultInfo="defaultInfo"
+    :modalConfig="modalConfig"
+    pageName="category"
+    message="类别操作"
     >
     </page-modal>
   </div>
@@ -27,8 +33,12 @@ import { contentTableConfig } from './config/content.config'
 import PageSearch from '@/components/page-serach/src/page-search.vue'
 import { searchFromConfig } from './config/search.config'
 
+import PageModal from '@/components/page-modal'
+import {modalConfig} from './config/modal.config'
+
 import {usePageSearch} from '@/hooks/use-page-search'
-import PageModal from '@/components/page-modal/src/page-modal.vue'
+import {usePageModal} from '@/hooks/use-modal'
+
 
 
 export default defineComponent({
@@ -36,6 +46,8 @@ export default defineComponent({
   name: 'category',
   setup() {
      const [pageContentRef,handleResetBtnClick,handleQueryBtnClick] = usePageSearch()
+     const [ pageModalRef,defaultInfo,handleNewData,handleEditData ] =usePageModal()
+
 
 
     return {
@@ -43,7 +55,12 @@ export default defineComponent({
       searchFromConfig,
       pageContentRef,
       handleResetBtnClick,
-      handleQueryBtnClick
+      handleQueryBtnClick,
+      modalConfig,
+      pageModalRef,
+      defaultInfo,
+      handleNewData,
+      handleEditData
     }
   }
 })

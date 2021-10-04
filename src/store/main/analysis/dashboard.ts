@@ -3,7 +3,9 @@ import { Module } from "vuex";
 import { getAddressGoodsSale,
     getCategoryGoodsCount,
     getCategoryGoodsFavor,
-    getCategoryGoodsSale } from '@/service/main/analysis/dashboard'
+    getCategoryGoodsSale,
+    getAmountList
+   } from '@/service/main/analysis/dashboard'
 
 import { IDashboardState } from './types'
 import { IRootState } from "../../types";
@@ -16,7 +18,8 @@ const dashboardModule:Module<IDashboardState,IRootState>={
     categoryGoodsCount:[],
     categoryGoodsSale:[],
     categoryGoodsFavor:[],
-    addressGoodsSale:[]
+    addressGoodsSale:[],
+    topPanelDatas:[]
   },
   mutations:{
     changeCategoryGoodsCount(state,list){
@@ -30,7 +33,10 @@ const dashboardModule:Module<IDashboardState,IRootState>={
     },
     changeAddressGoodsSale(state,list){
       state.addressGoodsSale = list
-    }
+    },
+    changeTopPanelDatas(state, list) {
+      state.topPanelDatas = list
+    },
   },
   actions:{
     async getDashbardDataAction({commit}){
@@ -45,6 +51,9 @@ const dashboardModule:Module<IDashboardState,IRootState>={
 
       const addressGoodsSaleResult = await getAddressGoodsSale()
       commit('changeAddressGoodsSale',addressGoodsSaleResult.data)
+
+      const resultTopPanelDatas = await getAmountList()
+      commit('changeTopPanelDatas', resultTopPanelDatas.data)
 
     }
   },

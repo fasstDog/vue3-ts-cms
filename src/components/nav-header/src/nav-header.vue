@@ -16,7 +16,7 @@ import { useStore } from '@/store'
 import { useRoute } from 'vue-router'
 
 import userInfo from './cpns/user-info.vue'
-import FtBreadcrumb from '@/base-ui/breadcrumb'
+import ftBreadcrumb from '@/base-ui/breadcrumb'
 
 import { pathMapBreadcrumbs } from '@/utils/map-menus'
 
@@ -25,7 +25,7 @@ import { pathMapBreadcrumbs } from '@/utils/map-menus'
 export default defineComponent({
   components:{
     userInfo,
-    FtBreadcrumb
+    ftBreadcrumb
   },
   emits:['foldChange'],
 

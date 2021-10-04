@@ -1,5 +1,5 @@
-import FtBreadcrumb from './src/breadcrumb.vue'
+import ftBreadcrumb from './src/breadcrumb.vue'
 
 
-export default FtBreadcrumb
+export default ftBreadcrumb
 export * from './types'

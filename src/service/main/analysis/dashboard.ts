@@ -4,7 +4,8 @@ enum DashboardAPI {
   categoryGoodsCount = '/goods/category/count',
   categoryGoodsSale = '/goods/category/sale',
   categoryGoodsFavor = '/goods/category/favor',
-  addressGoodsSale = '/goods/address/sale'
+  addressGoodsSale = '/goods/address/sale',
+  getAmountList = '/goods/amount/list'
 }
 
 
@@ -27,6 +28,12 @@ export function getCategoryGoodsFavor(){
 export function getAddressGoodsSale(){
   return ftRequset.get({
     url:DashboardAPI.addressGoodsSale
+  })
+}
+
+export function getAmountList(){
+  return ftRequset.get({
+    url:DashboardAPI.getAmountList
   })
 }
 

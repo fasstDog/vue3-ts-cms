@@ -1,16 +1,23 @@
 <template>
   <div class="chat">
-    <h2>chat</h2>
+    <ft-editor v-model:value="htmlString" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
+import ftEditor from '@/base-ui/editor'
 
 export default defineComponent({
   name: 'chat',
+  components: {
+    ftEditor
+  },
   setup() {
-    return {}
+    const htmlString = ref<string>('请在此输入……')
+    return {
+      htmlString
+    }
   }
 })
 </script>
