@@ -22,8 +22,8 @@ import { rules } from '../config/account-config'
 export default defineComponent({
   setup () {
     const account = reactive({
-      name:localCache.getCache('name') ?? '' ,
-      password:localCache.getCache('password') ?? ''
+      name:localCache.getCache('name') ?? 'coderwhy' ,
+      password:localCache.getCache('password') ?? '123456'
     })
     const store = useStore()
     const fromRef = ref<InstanceType<typeof ElForm>>()
